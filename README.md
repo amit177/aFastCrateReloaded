@@ -81,3 +81,6 @@ For example if the crate name is "rank":
 - `%crate` - will output `Rank`
 - `%crate_lower%` - will output `rank`
 - `%crate_upper%` - will output `RANK`
+
+
+<img src="https://bstats.org/signatures/bukkit/afastcratereloaded.svg"/>
