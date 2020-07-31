@@ -82,5 +82,8 @@ For example if the crate name is "rank":
 - `%crate_lower%` - will output `rank`
 - `%crate_upper%` - will output `RANK`
 
+## Metrics
+
+The plugin uses [bStats](https://bstats.org/) to track usage.
 
 <img src="https://bstats.org/signatures/bukkit/afastcratereloaded.svg"/>
