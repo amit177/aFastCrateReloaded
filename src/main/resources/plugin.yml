@@ -1,0 +1,8 @@
+name: aFastCrateReloaded
+main: systems.amit.spigot.afastcratereloaded.Main
+version: 1.0
+author: amit177
+depend: [CrateReloaded]
+commands:
+  afastcratereloaded:
+    aliases: [afastcrates, fastcrates, afc]

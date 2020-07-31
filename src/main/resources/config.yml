@@ -1,0 +1,10 @@
+# Plugin by amit177
+# Formatting options for crate names:
+# %crate% - first letter uppercase, rest lowercase
+# %crate_lower% - full lowercase crate name
+# %crate_upper% - full uppercase crate name
+
+recursive-permission: "afastcratereloaded.recursive"
+key-material: "TRIPWIRE_HOOK"
+key-name-format: " KEY"
+show-help-credits: true
