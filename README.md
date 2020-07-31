@@ -1,6 +1,6 @@
 # aFastCrateReloaded
 
-aFastCrateReloaded is a [CrateReloaded](https://www.spigotmc.org/resources/pro-crate-reloaded-mystery-crate-1-8-1-16-x.3663/) addon to open received keys from crates.
+[aFastCrateReloaded](https://www.spigotmc.org/resources/afastcratereloaded.82183/) is a [CrateReloaded](https://www.spigotmc.org/resources/pro-crate-reloaded-mystery-crate-1-8-1-16-x.3663/) addon to open received keys from crates.
 
 ## Installation
 
