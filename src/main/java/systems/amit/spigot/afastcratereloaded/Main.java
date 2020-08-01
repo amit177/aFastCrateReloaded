@@ -11,6 +11,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import systems.amit.spigot.afastcratereloaded.events.Event_CrateInteract;
 import systems.amit.spigot.afastcratereloaded.events.Event_PlayerQuit;
@@ -30,6 +31,7 @@ public class Main extends JavaPlugin implements Listener {
     public String keyNameFormat = "";
     public boolean showHelpCredits = true;
     public Material keyMaterial = null;
+    public int minimumInventorySlots = 2;
 
 
     public static Main getInstance() {
@@ -82,6 +84,7 @@ public class Main extends JavaPlugin implements Listener {
                 || getConfig().contains("key-material")
                 || getConfig().contains("key-name-format")
                 || getConfig().contains("show-help-credits")
+                || getConfig().contains("required-inventory-slots")
         )) {
             getLogger().severe("The config is missing a required section, not proceeding");
             return false;
@@ -98,6 +101,7 @@ public class Main extends JavaPlugin implements Listener {
         recursivePermission = getConfig().getString("recursive-permission");
         keyNameFormat = getConfig().getString("key-name-format");
         showHelpCredits = getConfig().getBoolean("show-help-credits");
+        minimumInventorySlots = getConfig().getInt("minimum-inventory-slots");
 
         try {
             keyMaterial = Material.valueOf(getConfig().getString("key-material"));
@@ -202,9 +206,7 @@ public class Main extends JavaPlugin implements Listener {
      * @param name The display name of the key from the player's inventory
      * @return The name of the crate
      */
-    public String sanitizeKeyName(String name) {
-        return ChatColor.stripColor(name).replace(keyNameFormat, "");
-    }
+    public String sanitizeKeyName(String name) { return ChatColor.stripColor(name).replace(keyNameFormat, ""); }
 
     /**
      * The function generates the final crate open message
@@ -240,5 +242,21 @@ public class Main extends JavaPlugin implements Listener {
         return message.replace("%crate%", crateName.substring(0, 1).toUpperCase() + crateName.substring(1))
                 .replace("%crate_lower%", crateName)
                 .replace("%crate_upper%", crateName.toUpperCase());
+    }
+
+    /**
+     * The function counts the amount of empty slots in the player's inventory.
+     *
+     * @param p The requested player
+     * @return The amount of empty slots
+     */
+    public int getEmptySlotCount(Player p) {
+        int i = 0;
+        for (ItemStack item : p.getInventory()) {
+            if (item != null && item.getType() != Material.AIR) {
+                i++;
+            }
+        }
+        return 36 - i;
     }
 }

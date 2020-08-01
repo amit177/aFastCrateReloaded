@@ -8,3 +8,4 @@ recursive-permission: "afastcratereloaded.recursive"
 key-material: "TRIPWIRE_HOOK"
 key-name-format: " KEY"
 show-help-credits: true
+minimum-inventory-slots: 2

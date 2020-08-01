@@ -8,6 +8,7 @@ public enum Lang {
 
     PREFIX("prefix", "&8[&bCrates&8]"),
     NO_PERMISSION("no-permission", "%prefix% &cYou do not have access to that command."),
+    OPEN_MESSAGE_INV_SLOTS("open-message.inv-slots", "%prefix% &cYou need at least &e%slots% &cempty inventory slots!"),
     OPEN_MESSAGE_FULL("open-message.full", "%prefix% &7You've opened %result% &7crates."),
     OPEN_MESSAGE_CRATE_FORMAT("open-message.crate-format", "&e%amount%x &c%crate_upper%,"),
     COMMANDS_HEADER("commands.header", "&7Command List:"),

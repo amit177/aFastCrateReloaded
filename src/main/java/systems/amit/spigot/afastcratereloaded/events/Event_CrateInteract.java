@@ -1,10 +1,13 @@
 package systems.amit.spigot.afastcratereloaded.events;
 
 import com.hazebyte.crate.api.event.CrateInteractEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
+import systems.amit.spigot.afastcratereloaded.Lang;
 import systems.amit.spigot.afastcratereloaded.Main;
 
 import java.util.HashMap;
@@ -24,6 +27,11 @@ public class Event_CrateInteract implements Listener {
         if (!e.getCrate().is(key)) return;
 
         e.setCancelled(true);
+
+        if(Main.getInstance().getEmptySlotCount(e.getPlayer()) < Main.getInstance().minimumInventorySlots) {
+            e.getPlayer().sendMessage(Lang.OPEN_MESSAGE_INV_SLOTS.get().replace("%slots%", String.valueOf(Main.getInstance().minimumInventorySlots)));
+            return;
+        }
 
         // make sure the key is a crate by parsing the config 'key-name-format' value
         String keyName = Main.getInstance().sanitizeKeyName(key.getItemMeta().getDisplayName());
