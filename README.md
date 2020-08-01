@@ -47,10 +47,12 @@ recursive-permission: afastcratereloaded.recursive
 key-material: TRIPWIRE_HOOK
 key-name-format: ' KEY'
 show-help-credits: true
+minimum-inventory-slots: 2
 lang:
   prefix: '&8[&bCrates&8]'
   no-permission: '%prefix% &cYou do not have access to that command.'
   open-message:
+    inv-slots: '%prefix% &cYou need at least &e%slots% &cempty inventory slots!'
     full: '%prefix% &7You''ve opened %result% &7crates.'
     crate-format: '&e%amount%x &c%crate_upper%,'
   commands:
